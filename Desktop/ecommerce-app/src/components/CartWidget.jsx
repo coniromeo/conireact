@@ -13,7 +13,7 @@ const CartWidget = () => {
     //     <ShoppingCartIcon />
     //     </Bagde>
     <div>
-        <img style= {styled} src={carrito}></img>
+        <img style= {styled} src={carrito} defaultValue="carrito"></img>
         <span>6</span>
     </div>
     );
