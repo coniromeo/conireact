@@ -78,13 +78,13 @@ const Info = styled.div`
 
 const ProductContainer = styled.div`
     flex: 1;
-    margin: 5px;
+    margin: 1px;
     min-width: 280px;
     height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5fbfd;
+    background-color: #45B39D;
     position: relative;
     &:hover ${Info}{
         opacity: 1;

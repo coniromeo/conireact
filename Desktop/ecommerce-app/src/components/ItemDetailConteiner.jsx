@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import customFetch from "../utils/customFetch";
 import ItemDetail from "./ItemDetail";
-const { products } = require('../utils/products');
+import products from "../utils/products";
 
 const ItemDetailContainer = () => {
     const [dato, setDato] = useState({});
