@@ -78,7 +78,7 @@ const Info = styled.div`
 
 const ProductContainer = styled.div`
     flex: 1;
-    margin: 1px;
+    margin: 2px;
     min-width: 280px;
     height: 350px;
     display: flex;

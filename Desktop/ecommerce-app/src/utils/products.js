@@ -60,7 +60,7 @@ const data = [
       name: "Tetera modelo 3 ",
       stock:12,
       cost: 5575,
-      description: "Se muestra con tonos amarillo verdoso de intensidad media. En la nariz encontramos frutas blancas maduras, peras, manzanas y banana, frutas tropicales, con notas de la maduración en barricas sobre las borras como vainilla, manteca y miel. Buen volumen, complejo, maduro, con una entrada untuosa en la boca, buen desarrollo y largo final. Se repiten las notas frutales del aroma.",
+      description: "Tetera confeccionada en fundicion de hierro. Mantiene la temperatura justa del te por más tiempo. Regalo ideal para las personas que necesitan frenar un poco su vorágine... y conectase con los verdaderos placeres de la vida. La capacidad de esta tetera es de 850 ml. Disponible en varios colores",
       capacity: 750,
       image: [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdP2f056FrXvxLohPjDOY4eY-mSnUwEVNL_w&usqp=CAU"      ],
