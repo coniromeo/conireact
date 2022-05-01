@@ -1,7 +1,7 @@
 const data = [
     {
       id: 30,
-      name: "Box 1",
+      name: "Tetera 1",
       stock: 10,
       cost: 2500,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor libero, tincidunt id lacinia auctor, mattis elementum tortor. In eu bibendum magna, ac dignissim justo.",
@@ -12,7 +12,7 @@ const data = [
       sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-18T19:39:05.347Z",
-      categoryId: 9,
+      categoryId: 1,
       brandId: 95,
       packingId: null,
       category: {
@@ -27,7 +27,7 @@ const data = [
     },
     {
       id: 29,
-      name: "Tetera Modelos 2",
+      name: "Tetera Modelo 2",
       stock: 10,
       cost: 4500,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor libero, tincidunt id lacinia auctor, mattis elementum tortor. In eu bibendum magna, ac dignissim justo.",
@@ -37,7 +37,7 @@ const data = [
       ],  sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-18T19:39:05.347Z",
-      categoryId: 9,
+      categoryId: 1,
       brandId: 95,
       packingId: null,
       category: {
@@ -117,7 +117,7 @@ const data = [
       sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-20T16:10:21.031Z",
-      categoryId: 1,
+      categoryId: 2,
       brandId: 10,
       packingId: null,
       category: {
@@ -142,7 +142,7 @@ const data = [
       sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-20T16:10:21.030Z",
-      categoryId: 1,
+      categoryId: 2,
       brandId: 16,
       packingId: null,
       category: {
@@ -168,7 +168,7 @@ const data = [
       sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-20T16:10:21.032Z",
-      categoryId: 1,
+      categoryId: 2,
       brandId: 16,
       packingId: null,
       category: {
@@ -192,7 +192,7 @@ const data = [
       sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-20T16:10:21.032Z",
-      categoryId: 1,
+      categoryId: 2,
       brandId: 16,
       packingId: null,
       category: {
@@ -218,7 +218,7 @@ const data = [
       sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-20T16:10:21.032Z",
-      categoryId: 1,
+      categoryId: 3,
       brandId: 16,
       packingId: null,
       category: {
@@ -243,7 +243,7 @@ const data = [
       sales: 0,
       createdAt: "2021-09-18T05:11:04.952Z",
       updatedAt: "2021-09-18T11:08:17.792Z",
-      categoryId: 5,
+      categoryId: 4,
       brandId: 17,
       packingId: null,
       category: {
