@@ -1,16 +1,21 @@
+import { useState } from 'react';
+import Nuevo from './Nuevo';
 import ItemCount from './ItemCount';
 import { DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price } from './styledComponents';
+import Cart from './Cart';
 
 const ItemDetail = ({ item }) => {
+    const [itemCount, setItemCount] = useState(0);
 
     const onAdd = (qty) => {
         alert("You have selected " + qty + " items.");
+        setItemCount(qty);
     }
 
     return (
         <>
         {
-            item.image
+            item && item.image
             ? 
             <DetailContainer>
                 <WrapperDetail>
@@ -23,7 +28,11 @@ const ItemDetail = ({ item }) => {
                         <Price>$ {item.cost}</Price>
                         <Desc>{item.stock} unidades en stock</Desc>
                     </InfoContainer>
-                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                    {
+                        itemCount === 0
+                        ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
+                        : <Nuevo />
+                    }
                 </WrapperDetail>
             </DetailContainer>
             : <p>Cargando...</p>

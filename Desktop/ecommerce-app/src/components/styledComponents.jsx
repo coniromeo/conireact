@@ -78,13 +78,13 @@ const Info = styled.div`
 
 const ProductContainer = styled.div`
     flex: 1;
-    margin: 1px;
+    margin: 5px;
     min-width: 280px;
     height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #96B7B7;
+    background-color: #f5fbfd;
     position: relative;
     &:hover ${Info}{
         opacity: 1;
@@ -132,6 +132,7 @@ const WrapperDetail = styled.div`
 
 const ImgContainer = styled.div`
     flex: 1;
+    width: 50%;
 `;
 
 const ImageDetail = styled.img`
@@ -158,10 +159,27 @@ const Price  = styled.span`
     font-size: 40px;
 `;
 
+
+//SearchForm
+const SearchContainer = styled.div`
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    padding: 5px;
+`;
+
+const Input = styled.input`
+    margin-right: 5px;
+    border: none;
+    outline: none;
+`;
 export { 
     Wrapper, Logo, MenuItem, Left, Center, Right, 
     ProductAmountContainer, ProductAmount, 
     ProductsContainer, ProductContainer,
     Circle, Image, Info, Icon,
-    DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price
+    DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price,
+    SearchContainer, Input
 }

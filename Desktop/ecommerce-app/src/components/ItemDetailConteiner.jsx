@@ -2,9 +2,9 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import customFetch from "../utils/customFetch";
 import ItemDetail from "./ItemDetail";
-import products from "../utils/products";
+const {products} = require ('../utils/products');
 
-const ItemDetailContainer = () => {
+const ItemDetailConteiner = () => {
     const [dato, setDato] = useState({});
     const { idItem } = useParams();
 
@@ -15,8 +15,10 @@ const ItemDetailContainer = () => {
     }, []);
     
     return (
+        <>
         <ItemDetail item={dato} />
+   
+        </>
     );
 }
-export default ItemDetailContainer;
-
+export default ItemDetailConteiner;

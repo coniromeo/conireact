@@ -2,6 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from "./CartWidget";
 import "../App.css"
 import { Link } from "react-router-dom";
+import SearchForm from './SearchForm';
+
 
 const NavBar = () => {
     return (
@@ -36,6 +38,14 @@ const NavBar = () => {
            <a class="nav-link" href="#">Sweet Box</a>
           </li>
           </Link>
+          <Link to='/category/4'>
+            <li className="linco">
+           <a class="nav-link" href="#">Portarretrato</a>
+          </li>
+          </Link>
+          <li className="linco">
+           <a class="nav-link" href="#"><SearchForm/></a>
+          </li>
           <li className="carrito"><CartWidget/></li>
           <li className="carrito">Suscribite </li>
           </ul>

@@ -1,4 +1,4 @@
-const data = [
+const products = [
     {
       id: 30,
       name: "Tetera 1",
@@ -257,5 +257,7 @@ const data = [
       reviews: []
     }
   ];
-
-export default data;
+  
+  module.exports = {
+    products,
+  }
