@@ -2,12 +2,15 @@
 // import { ShoppingCartIcon } from "material-ui/icons";
 import carrito from "../assets/carrito-de-compras.png";
 import "../App.css"
+import CartContext from "./CartContext";
+import { useContext } from "react";
 const styled = {
     width:"35px",
     textAlign:"left",
 }
 
 const CartWidget = () => {
+    const test = useContext(CartContext);
     return(
     //     <Bagde BagdeContent={9} color="secondary">
     //     <ShoppingCartIcon />

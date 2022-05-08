@@ -16,36 +16,19 @@ const NavBar = () => {
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <Link to='/about'>
-
-            <li className="linco">
-              <a class="nav-link active" aria-current="page" href="#">Nosotros</a>
-            </li>
-            </Link>
             <Link to='/category/1'>
-
-            <li className="linco">
-              <a class="nav-link" href="#">Teteras</a>
-            </li>
+            <li className="linco">Teteras  </li>
             </Link>
             <Link to='/category/2'>
-            <li className="linco">
-              <a class="nav-link" href="#">Velas</a>
-            </li>
+              <li className="linco">Velas    </li>
             </Link>
             <Link to='/category/3'>
-            <li className="linco">
-           <a class="nav-link" href="#">Sweet Box</a>
-          </li>
+           <li className="linco">Sweet Box  </li>
           </Link>
           <Link to='/category/4'>
-            <li className="linco">
-           <a class="nav-link" href="#">Portarretrato</a>
-          </li>
+            <li className="linco">Portarretrato  </li>
           </Link>
-          <li className="linco">
-           <a class="nav-link" href="#"><SearchForm/></a>
-          </li>
+          <SearchForm />
           <li className="carrito"><CartWidget/></li>
           <li className="carrito">Suscribite </li>
           </ul>

@@ -3,6 +3,7 @@ import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import customFetch from "../utils/customFetch";
 import { useParams } from "react-router";
+import { Button } from "bootstrap";
 
 const { products } = require('../utils/products');
 
@@ -36,6 +37,8 @@ const ItemListConteiner = () => {
         <>  
             <ItemList items={datos} />
             <ItemCount stock={5} initial={1} onAdd={onAdd} />
+            
+
         </>
     );
 };
