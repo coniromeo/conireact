@@ -219,6 +219,7 @@ text-align: center;
 padding: 10px 20px 10px;
 overflow: hidden;
 width: 100%;
+float: left;
 `; 
   
 export { 
