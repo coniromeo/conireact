@@ -2,8 +2,8 @@ const products = [
     {
       id: 30,
       name: "Tetera 1",
-      stock: 10,
-      cost: 2500,
+      stock: 13,
+      cost: 5500,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor libero, tincidunt id lacinia auctor, mattis elementum tortor. In eu bibendum magna, ac dignissim justo.",
       capacity: 1500,
       image: [

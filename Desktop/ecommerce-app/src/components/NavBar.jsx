@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from "./CartWidget";
 import "../App.css"
 import { Link } from "react-router-dom";
-import SearchForm from './SearchForm';
 
 
 const NavBar = () => {
@@ -28,7 +27,6 @@ const NavBar = () => {
           <Link to='/category/4'>
             <li className="linco">Portarretrato  </li>
           </Link>
-          <SearchForm />
           <li className="carrito"><CartWidget/></li>
           <li className="carrito">Suscribite </li>
           </ul>

@@ -1,41 +1,39 @@
-import { useContext, useState } from "react";
-import CartContext from "./CartContext";
+import { Button } from '@material-ui/core';
+import { Add, Remove } from '@material-ui/icons';
+import { useEffect, useState } from 'react';
+import { ProductAmountContainer, ProductAmount } from './styledComponents';
 
-const ItemCount = ({stock = 0, initial = 1, onAdd}) => {
+const ItemCount = ({ stock = 0, initial = 1,  onAdd }) => {
+    const [count, setCount] = useState(0);
 
-    const [count, setCount] = useState(initial);
-    const Count = useContext(CartContext);
+    useEffect(() => {
+        setCount(initial);
+    },[]);
+
     const increment = () => {
         if (count < stock) {
-           setCount(count +1);
-       }
-   }
-    
-    const decrement = () => {
-        if (count > initial) {
-            setCount(count -1);
+            setCount(count + 1);
         }
     }
-return (
-    <div>
-        <button type="button" class="btn btn-light" onClick={increment}>+</button>
-        <span>{count} Productos </span>
-        <button type="button" class="btn btn-light"onClick={decrement}>-</button>
-        <span className="puntitos">...</span>
-        <button type="button" class="btn btn-light"onClick={()=> onAdd(count)}>Agregar al carrito</button>
-</div>
-);
-}
-  //  return (
-  //      <div>
-  //        <p>You clicked {count} times</p>
-  //        <button onClick={() => setCount(count + 1)}>
-  //          Click me
-  //        </button>
-  //      </div>
-  //    );
-  //  }
     
+    const decrement = () => {
+        if (count > initial+1) {
+            setCount(count - 1);
+        }
+    }
+    return (
+        <ProductAmountContainer>
+            <Button variant="text" onClick={increment}><Add /></Button>
+            <ProductAmount>{count}</ProductAmount>
+            <Button variant="text" onClick={decrement}><Remove /></Button>
+            {
+                stock && count
+                ? <Button variant="contained" color="primary" onClick={() => onAdd(count)}>Add to Cart</Button>
+                : <Button variant="contained" disabled>Add to Cart</Button>
+            }
+            
+        </ProductAmountContainer>
+    );
+}
 
-    export default ItemCount;
-
+export default ItemCount;

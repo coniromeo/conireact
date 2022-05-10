@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react';
-import Nuevo from './Nuevo';
+import { Button } from '@material-ui/core';
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 import { DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price } from './styledComponents';
-import Cart from './Cart';
 import { CartContext } from './CartContext';
-
 
 const ItemDetail = ({ item }) => {
     const [itemCount, setItemCount] = useState(0);
@@ -13,7 +12,7 @@ const ItemDetail = ({ item }) => {
     const onAdd = (qty) => {
         alert("You have selected " + qty + " items.");
         setItemCount(qty);
-        test.addToCart(item);
+        test.addToCart(item, qty);
     }
 
     return (
@@ -35,7 +34,7 @@ const ItemDetail = ({ item }) => {
                     {
                         itemCount === 0
                         ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
-                        : <Nuevo />
+                        : <Link to='/cart' style={{textDecoration: "none"}}><Button variant="contained" color="secondary">Ver el Carrito</Button></Link>
                     }
                 </WrapperDetail>
             </DetailContainer>

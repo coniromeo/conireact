@@ -207,41 +207,12 @@ const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
 `;
-const Input  = styled.span`
-    font-weight: 10;
-    `;
-const SearchContainer = styled.span`
-    flex:1;
-    `;
-
-
-    const Top = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-`;
-
-const TopButton = styled.button`
-  padding: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  border: ${(props) => props.type === "filled" && "none"};
-  background-color: ${(props) =>
-    props.type === "filled" ? "black" : "transparent"};
-  color: ${(props) => props.type === "filled" && "white"};
-`;
-
-const TopText = styled.span`
-  margin: 0px 10px;
-`;
 
 export { 
     Wrapper, Logo, MenuItem, Left, Center, Right, 
     ProductAmountContainer, ProductAmount, 
     ProductsContainer, ProductContainer,
-    Circle, Image, Info, Icon, Input, SearchContainer,
+    Circle, Image, Info, Icon,
     DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price,
-    WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductPrice, TopText, 
-    TopButton, Top,
+    WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductPrice
 }
