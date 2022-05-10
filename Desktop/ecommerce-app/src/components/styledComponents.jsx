@@ -208,11 +208,24 @@ const ProductPrice = styled.div`
   font-weight: 200;
 `;
 
+const Footer2 = styled.div`
+font-family: Roboto;
+background: #C0C0C0;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+width: 100%;
+font: bold 14px sans-serif;
+text-align: center;
+padding: 10px 20px 10px;
+overflow: hidden;
+width: 100%;
+`; 
+  
 export { 
     Wrapper, Logo, MenuItem, Left, Center, Right, 
     ProductAmountContainer, ProductAmount, 
     ProductsContainer, ProductContainer,
     Circle, Image, Info, Icon,
     DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price,
-    WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductPrice
+    WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductPrice, Footer2
 }

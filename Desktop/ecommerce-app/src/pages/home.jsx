@@ -4,9 +4,11 @@ import ItemDetailConteiner from "../components/ItemDetailConteiner";
 import ItemListConteiner from "../components/ItemListConteiner";
 import NavBar from "../components/NavBar";
 import CartContextProvider, {CartContext} from "../components/CartContext";
+import Footer from "../components/Footer";
 
 const Home = () => {
     return (
+        <>
         <CartContextProvider>
         <BrowserRouter>
             <NavBar />
@@ -18,6 +20,9 @@ const Home = () => {
             </Routes>
         </BrowserRouter>
         </CartContextProvider>
+        <Footer />
+        </>
+   
     );
 }
 

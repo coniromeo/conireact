@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { CartContext } from './CartContext';
 import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, ProductAmount, ProductPrice, Hr } from './styledComponents';
-
-import FormatNumber from "../utils/FormatNumber";
+import FormatNumber from '../utils/FormatNumbers';
 import styled from "styled-components";
 
 const Top = styled.div`
@@ -15,12 +14,11 @@ const Top = styled.div`
 
 const TopButton = styled.button`
   padding: 10px;
-  size: 65px;
   font-weight: 600;
   cursor: pointer;
   border: ${(props) => props.type === "filled" && "none"};
   background-color: ${(props) =>
-    props.type === "filled" ? "grey" : "transparent"};
+    props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
@@ -48,7 +46,6 @@ const Summary = styled.div`
 
 const SummaryTitle = styled.h1`
   font-weight: 200;
-  padding: 1px;
 `;
 
 const SummaryItem = styled.div`
@@ -76,12 +73,12 @@ const Cart = () => {
 
     return (
         <WrapperCart>
-            <TitleCart> Tu Carrito!</TitleCart>
+            <TitleCart>Tu Carrito</TitleCart>
             <Top>
-                <Link to='/'><TopButton>Continúa comprando</TopButton></Link>
+                <Link to='/'><TopButton>Segui comprando!</TopButton></Link>
                 {
                     (test.cartList.length > 0)
-                    ? <TopButton type="filled" onClick={test.removeList}>Borra todos los productos y volve a empezar !</TopButton>
+                    ? <TopButton type="filled" onClick={test.removeList}>Borra todos los productos y empeza de nuevo!</TopButton>
                     : <TopText>Tu carrito esta vacio</TopText>
                 }
             </Top>
@@ -96,9 +93,9 @@ const Cart = () => {
                                 <ImageCart src={item.imgItem} />
                                 <Details>
                                 <span>
-                                    <b>Product:</b> {item.nameItem}
+                                    <b>Producto:</b> {item.nameItem}
                                 </span>
-                                <TopButton type="filled" onClick={() => test.deleteItem(item.idItem)}>Borrar este item</TopButton>
+                                <TopButton type="filled" onClick={() => test.deleteItem(item.idItem)}>Borrar este producto</TopButton>
                                 </Details>
                             </ProductDetail>
                             <PriceDetail>
@@ -116,7 +113,7 @@ const Cart = () => {
                 {
                     test.cartList.length > 0 &&
                         <Summary>
-                            <SummaryTitle>Tu Pedido</SummaryTitle>
+                            <SummaryTitle>Tu Pedido:</SummaryTitle>
                             <SummaryItem>
                                 <SummaryItemText>Subtotal</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcSubTotal()} /></SummaryItemPrice>
@@ -126,14 +123,14 @@ const Cart = () => {
                                 <SummaryItemPrice><FormatNumber number={test.calcTaxes()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem>
-                                <SummaryItemText>Descuento por compra</SummaryItemText>
+                                <SummaryItemText>Descuento por primera compra</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={-test.calcTaxes()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem type="total">
                                 <SummaryItemText>Total</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcTotal()} /></SummaryItemPrice>
                             </SummaryItem>
-                            <Button>Finaliza tu compra</Button>
+                            <Button>Finalizar la compra</Button>
                         </Summary>
                 }
             </Bottom>
