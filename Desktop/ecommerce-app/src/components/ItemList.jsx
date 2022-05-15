@@ -1,19 +1,29 @@
-import { ProductsContainer } from './styledComponents';
-import Item from './Item';
+import ItemList from './ItemList';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { firestoreFetch } from '../utils/firestoreFetch';
 
-const ItemList = ({ items }) => {
+const ItemListContainer = () => {
+    const [datos, setDatos] = useState([]);
+    const { idCategory } = useParams();
 
-    return(
-<>
-        {(items.length > 0) && 
-    (<ProductsContainer>
-        {items.map(item => <Item key={item.id} id={item.id} title={item.name} price={item.cost} pictureUrl={item.image[0]} stock={item.stock} />)
-        } 
-        </ProductsContainer>)
-    }
-  {  (items.length <=0) && (<p>Cargando...</p>)}
-</>
-);
+    //componentDidUpdate
+    useEffect(() => {
+        firestoreFetch(idCategory)
+            .then(result => setDatos(result))
+            .catch(err => console.log(err));
+    }, [idCategory]);
+
+    //componentWillUnmount
+    useEffect(() => {
+        return (() => {
+            setDatos([]);
+        })
+    }, []);
+
+    return (
+            <ItemList items={datos} />
+    );
 }
 
-export default ItemList;
+export default ItemListContainer;

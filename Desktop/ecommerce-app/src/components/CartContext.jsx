@@ -21,6 +21,9 @@ const CartContextProvider = ({ children }) => {
         } else {
             //al encontrarlo, entonces aumentamos el qty de ese producto
             found.qtyItem += qty;
+            setCartList([
+                ...cartList
+            ]);
         }
     }
     
@@ -29,7 +32,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     const deleteItem = (id) => {
-        let result = cartList.filter(item => item.idItem != id);
+        let result = cartList.filter(item => item.idItem !== id);
         setCartList(result);
     }
 
@@ -44,7 +47,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     const calcTaxes = () => {
-        return calcSubTotal() * 0.21;
+        return calcSubTotal() * 0.18;
     }
 
     const calcTotal = () => {

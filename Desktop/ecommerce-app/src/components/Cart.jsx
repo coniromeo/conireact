@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { CartContext } from './CartContext';
-import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, ProductAmount, ProductPrice, Hr } from './styledComponents';
-import FormatNumber from '../utils/FormatNumbers';
+import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, ProductAmount, ProductPrice } from './styledComponents';
+
+import FormatNumber from "../utils/FormatNumbers";
 import styled from "styled-components";
+
+import { collection, doc, setDoc, serverTimestamp, updateDoc, increment } from "firebase/firestore";
+import db from '../utils/firebaseConfig';
 
 const Top = styled.div`
   display: flex;
@@ -68,18 +72,61 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
+
 const Cart = () => {
-    const test = useContext(CartContext);
+  const test = useContext(CartContext);
+
+  const createOrder = () => {
+    const itemsForDB = test.cartList.map(item => ({
+      id: item.idItem,
+      title: item.nameItem,
+      price: item.costItem
+    }));
+
+    test.cartList.forEach(async (item) => {
+      const itemRef = doc(db, "products", item.idItem);
+      await updateDoc(itemRef, {
+        stock: increment(-item.qtyItem)
+      });
+    });
+
+    let order = {
+      buyer: {
+        name: "Leo Messi",
+        email: "leo@messi.com",
+        phone: "123456789"
+      },
+      total: test.calcTotal(),
+      items: itemsForDB,
+      date: serverTimestamp()
+    };
+  
+    console.log(order);
+    
+    const createOrderInFirestore = async () => {
+      // Add a new document with a generated id
+      const newOrderRef = doc(collection(db, "orders"));
+      await setDoc(newOrderRef, order);
+      return newOrderRef;
+    }
+  
+    createOrderInFirestore()
+      .then(result => alert('Your order has been created. Please take note of the ID of your order.\n\n\nOrder ID: ' + result.id + '\n\n'))
+      .catch(err => console.log(err));
+  
+    test.removeList();
+  
+  }
 
     return (
         <WrapperCart>
-            <TitleCart>Tu Carrito</TitleCart>
+            <TitleCart>YOUR CART</TitleCart>
             <Top>
-                <Link to='/'><TopButton>Segui comprando!</TopButton></Link>
+                <Link to='/'><TopButton>CONTINUE SHOPPING</TopButton></Link>
                 {
                     (test.cartList.length > 0)
-                    ? <TopButton type="filled" onClick={test.removeList}>Borra todos los productos y empeza de nuevo!</TopButton>
-                    : <TopText>Tu carrito esta vacio</TopText>
+                    ? <TopButton type="filled" onClick={test.removeList}>DELETE ALL PRODUCTS</TopButton>
+                    : <TopText>Your cart is empty</TopText>
                 }
             </Top>
             <ContentCart>
@@ -93,9 +140,9 @@ const Cart = () => {
                                 <ImageCart src={item.imgItem} />
                                 <Details>
                                 <span>
-                                    <b>Producto:</b> {item.nameItem}
+                                    <b>Product:</b> {item.nameItem}
                                 </span>
-                                <TopButton type="filled" onClick={() => test.deleteItem(item.idItem)}>Borrar este producto</TopButton>
+                                <TopButton type="filled" onClick={() => test.deleteItem(item.idItem)}>DELETE</TopButton>
                                 </Details>
                             </ProductDetail>
                             <PriceDetail>
@@ -113,24 +160,24 @@ const Cart = () => {
                 {
                     test.cartList.length > 0 &&
                         <Summary>
-                            <SummaryTitle>Tu Pedido:</SummaryTitle>
+                            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                             <SummaryItem>
                                 <SummaryItemText>Subtotal</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcSubTotal()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem>
-                                <SummaryItemText>IVA</SummaryItemText>
+                                <SummaryItemText>Taxes</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcTaxes()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem>
-                                <SummaryItemText>Descuento por primera compra</SummaryItemText>
+                                <SummaryItemText>Taxes Discount</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={-test.calcTaxes()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem type="total">
                                 <SummaryItemText>Total</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcTotal()} /></SummaryItemPrice>
                             </SummaryItem>
-                            <Button>Finalizar la compra</Button>
+                            <Button onClick={createOrder}>CHECKOUT NOW</Button>
                         </Summary>
                 }
             </Bottom>

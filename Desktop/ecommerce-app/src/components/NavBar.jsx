@@ -16,18 +16,24 @@ const NavBar = () => {
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <Link to='/category/1'>
-            <li className="linco">Teteras  </li>
+            <li className="linco">  Teteras  </li>
             </Link>
+            <li className="puntitos">...</li>
             <Link to='/category/2'>
-              <li className="linco">Velas    </li>
+              <li className="linco">  Velas    </li>
             </Link>
+            
+            <li className="puntitos">...</li>
             <Link to='/category/3'>
-           <li className="linco">Sweet Box  </li>
+           <li className="linco">  Sweet Box  </li>
           </Link>
-          <Link to='/category/4'>
-            <li className="linco">Portarretrato  </li>
+           <Link to='/category/4'>
+            <li className="linco"> Portarretrato  </li>
           </Link>
+            <li className="puntitos">...</li>
           <li className="carrito"><CartWidget/></li>
+          
+          <li className="puntitos">...</li>
           <li className="carrito">Suscribite </li>
           </ul>
           </div>

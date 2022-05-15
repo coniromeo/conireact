@@ -1,23 +1,28 @@
 import ItemList from './ItemList';
-import customFetch from "../utils/customFetch";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-const { products } = require('../utils/products');
+import db from '../utils/firebaseConfig';
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([]);
-    const { idCategory } = useParams();
+    const { categoryId } = useParams();
 
     //componentDidUpdate
     useEffect(() => {
-        customFetch(500, products.filter(item => {
-            if (idCategory === undefined) return item;
-            return item.categoryId === parseInt(idCategory)
-        }))
+        const fetchFromFirestone = async () => {
+            const querySnapshot = await getDocs(collection(db, "products"));
+            const dataFromFirestore = querySnapshot.docs.map((doc) => ({
+            id: doc.id, 
+            ...doc.data()
+        }));
+            return dataFromFirestore;
+        }
+        
+        fetchFromFirestone()
             .then(result => setDatos(result))
-            .catch(err => console.log(err))
-    }, [datos]);
-
+            .catch(err => console.log =(err))
+         }, [datos] );
     //componentWillUnmount
     useEffect(() => {
         return (() => {
