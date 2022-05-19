@@ -10,9 +10,9 @@ export const firestoreFetch = async (idCategory) => {
         q = query(collection(db, "products"));
     }
     const querySnapshot = await getDocs(q);
-    const dataFromFirestore = querySnapshot.docs.map(document => ({
-        id: document.id,
-        ...document.data()
+    const dataFromFirestore = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
     }));
     return dataFromFirestore;
 }
