@@ -212,14 +212,12 @@ const Footer2 = styled.div`
 font-family: Roboto;
 background: #C0C0C0;
 box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-box-sizing: border-box;
 width: 100%;
-font: bold 14px sans-serif;
+font: bold 14px sans-serif color:#51D1F6;
 text-align: center;
 padding: 10px 20px 10px;
-overflow: hidden;
-width: 100%;
-float: left;
+margin-top:50px;
+height:75px;
 `; 
   
 export { 

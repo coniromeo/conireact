@@ -1,28 +1,19 @@
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import db from '../utils/firebaseConfig';
-import { collection, getDocs } from "firebase/firestore";
+import { firestoreFetch } from '../utils/firestoreFetch';
 
-const ItemListContainer = () => {
+const ItemListConteiner = () => {
     const [datos, setDatos] = useState([]);
     const { categoryId } = useParams();
 
     //componentDidUpdate
     useEffect(() => {
-        const fetchFromFirestone = async () => {
-            const querySnapshot = await getDocs(collection(db, "products"));
-            const dataFromFirestore = querySnapshot.docs.map((doc) => ({
-            id: doc.id, 
-            ...doc.data()
-        }));
-            return dataFromFirestore;
-        }
-        
-        fetchFromFirestone()
+        firestoreFetch(categoryId)
             .then(result => setDatos(result))
-            .catch(err => console.log =(err))
-         }, [datos] );
+            .catch(err => console.log(err));
+    }, [categoryId]);
+
     //componentWillUnmount
     useEffect(() => {
         return (() => {
@@ -35,4 +26,4 @@ const ItemListContainer = () => {
     );
 }
 
-export default ItemListContainer;
+export default ItemListConteiner;

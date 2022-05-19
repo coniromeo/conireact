@@ -1,3 +1,4 @@
+
 import { Button } from '@material-ui/core';
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -5,6 +6,7 @@ import ItemCount from './ItemCount';
 import { DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price } from './styledComponents';
 import { CartContext } from './CartContext';
 import SeguirComprando from "./SeguirComprando";
+
 const ItemDetail = ({ item }) => {
     const [itemCount, setItemCount] = useState(0);
     const test = useContext(CartContext);
@@ -23,7 +25,7 @@ const ItemDetail = ({ item }) => {
             <DetailContainer>
                 <WrapperDetail>
                     <ImgContainer>
-                        <ImageDetail src={item.image[0]} />
+                        <ImageDetail src={item.image} />
                     </ImgContainer>
                     <InfoContainer>
                         <Title>{item.name}</Title>
