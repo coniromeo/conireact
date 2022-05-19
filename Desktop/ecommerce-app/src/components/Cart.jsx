@@ -15,7 +15,8 @@ const Top = styled.div`
 const TopButton = styled.button`
   padding: 10px;
   font-weight: 600;
-  size: 75px;
+  size: 55px;
+  maxwidht: 35px;
   cursor: pointer;
   border: ${(props) => props.type === "filled" && "none"};
   background-color: ${(props) =>
@@ -67,7 +68,13 @@ const Button = styled.button`
   color: white;
   font-weight: 600;
 `;
-
+const Borrar = styled.button`
+  width: 20%;
+  padding: 5px;
+  background-color: grey;
+  color: white;
+  font-weight:50;
+`
 const Cart = () => {
     const test = useContext(CartContext);
 
@@ -90,14 +97,11 @@ const Cart = () => {
                             test.cartList.map(item => 
                             <Product key={item.idItem}>
                             <ProductDetail>   
-                              <ImageCart src={item.imgItem} />
-                                <Details>
-                                <span>
+                            <ImageCart src={item.imgItem} />                              
+                                  <span>
                                     <b>Producto:</b> {item.nameItem}
                                 </span>
-                                <TopButton type="filled" onClick={() => test.deleteItem(item.idItem)}>Borrar este producto</TopButton>
-                                </Details>
-
+                                <Borrar type="filled" onClick={() => test.deleteItem(item.idItem)}>Borrar este producto</Borrar>
                             </ProductDetail>
                             <PriceDetail>
                                 <ProductAmountContainer>
